@@ -2,7 +2,9 @@
   <div class="relative">
     <div class="absolute top-0 w-full bg-white shadow-xl">
       <div class="bg-white">
-        <div class="relative w-full bg-white">
+        <div
+          class="relative w-full bg-white transform motion-safe:hover:lg:scale-105 transition-transform duration-200"
+        >
           <!-- Background Image -->
           <img
             src="/images/course_cover.jpg"

@@ -1,18 +1,22 @@
 <template>
-  <div class="text-black px-6 py-5">
-    <p class="text-xl font-extrabold">Subscribe to Udemy’s top courses</p>
-
-    <p class="text-sm mb-4">
-      Get this course, plus 12,000+ of our top-rated courses, with Personal Plan.
-      <span class="text-[#3B198F] font-extrabold underline"> Learn more </span>
+  <div class="text-black px-4 md:px-6 py-5">
+    <!-- Adjusted text sizes and padding for mobile -->
+    <p class="text-lg md:text-xl font-extrabold">
+      Subscribe to Udemy's top courses
     </p>
 
+    <p class="text-sm mb-4">
+      Get this course, plus 12,000+ of our top-rated courses, with Personal
+      Plan.
+      <span class="text-[#3B198F] font-extrabold underline">Learn more</span>
+    </p>
+
+    <!-- Made buttons larger on mobile for better touch targets -->
     <button
-      class="bg-[#A435F0] hover:bg-[#A435F0] text-white font-bold py-2 px-4 rounded w-full"
+      class="bg-[#A435F0] hover:bg-[#A435F0] text-white font-bold py-3 md:py-2 px-4 rounded w-full"
     >
       Try Personal for free
     </button>
-
     <div class="text-center text-xs py-2 text-gray-500">
       Starting at $10.00 per month after trial
     </div>
