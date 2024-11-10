@@ -4,7 +4,7 @@
 node_modules
 jspm_packages
 
-package-lock.json
+# package-lock.json
 packages/*/README.md
 !packages/nuxi/README.md
 packages/*/LICENSE
