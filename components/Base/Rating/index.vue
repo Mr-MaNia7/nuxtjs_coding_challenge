@@ -4,7 +4,7 @@
 
     <NuxtRating :read-only="false" :ratingValue="rating" />
 
-    <p class="text-[#C0C4FC]">( {{ numberOfReviews }} ratings)</p>
+    <p class="text-[#C0C4FC]">({{ numberOfReviews }} ratings)</p>
   </div>
 </template>
 

@@ -3,94 +3,90 @@
     <h2 class="text-2xl font-extrabold">Students also bought</h2>
 
     <div class="min-w-full align-middle">
-      <div class="overflow-hidden">
-        <table class="min-w-full divide-y divide-gray-300">
-          <tbody class="divide-y divide-gray-200 bg-white">
-            <tr v-for="course in courses" :key="course.id">
-              <td class="whitespace-nowrap py-5 pl-4 pr-3 text-sm sm:pl-0">
-                <div class="flex h-full">
-                  <div class="h-16 w-16 shrink-0">
-                    <img class="h-16 w-16" :src="course.image" alt="" />
-                  </div>
-                  <div class="ml-4 flex flex-col gap-y-1">
-                    <h3
-                      class="text-base font-semibold text-gray-800 capitalize"
+      <table class="min-w-full divide-y divide-gray-300">
+        <tbody class="divide-y divide-gray-200 bg-white">
+          <tr v-for="course in courses" :key="course.id">
+            <td class="whitespace py-5 pl-4 pr-3 text-sm sm:pl-0">
+              <div class="flex h-full">
+                <div class="h-16 w-16 shrink-0">
+                  <img class="h-16 w-16" :src="course.image" alt="" />
+                </div>
+                <div class="ml-4 flex flex-col gap-y-1">
+                  <h3 class="text-base font-semibold text-gray-800 capitalize">
+                    {{ course.title }}
+                  </h3>
+                  <div class="mt-1 text-gray-500 flex items-center">
+                    <span
+                      :class="[course.tag_color || 'bg-customYellow-300']"
+                      class="text-gray-600 self-center font-semibold px-2 text-xs leading-loose"
                     >
-                      {{ course.title }}
-                    </h3>
-                    <div class="mt-1 text-gray-500 flex items-center">
-                      <span
-                        :class="[course.tag_color || 'bg-customYellow-300']"
-                        class="text-gray-600 self-center font-semibold px-2 text-xs leading-loose"
-                      >
-                        {{ course.tag }}
-                      </span>
-                      <span class="text-teal-800 font-semibold pl-2">
-                        {{ course.duration }}</span
-                      >
-                      <Icon name="radix-icons:dot-filled" class="px-2" />
-                      <span class="text-gray-600">
-                        Updated {{ course.updated_at }}</span
-                      >
-                    </div>
+                      {{ course.tag }}
+                    </span>
+                    <span class="text-teal-800 font-semibold pl-2">
+                      {{ course.duration }}</span
+                    >
+                    <Icon name="radix-icons:dot-filled" class="px-2" />
+                    <span class="text-gray-600">
+                      Updated {{ course.updated_at }}</span
+                    >
                   </div>
                 </div>
-              </td>
-              <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-                <div
-                  class="text-gray-600 flex gap-x-1 items-center text-base font-semibold"
-                >
-                  {{ course?.stars }}
-                  <Icon
-                    name="material-symbols:star"
-                    class="text-yellow-600 text-xl"
-                  />
-                </div>
-              </td>
-              <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-                <div class="text-gray-600 flex gap-x-1 items-center">
-                  <Icon name="ic:sharp-group" class="text-gray-500 text-xl" />
-                  {{ course?.students.toLocaleString() }}
-                </div>
-              </td>
-              <td class="whitespace-nowrap px-3 py-5 text-sm text-gray-500">
-                <div class="flex shrink-0 items-center gap-x-6">
-                  <div class="hidden sm:flex sm:flex-col sm:items-end">
-                    <p class="text-sm/6 text-gray-900 font-bold">
-                      {{
-                        course.price.toLocaleString("en-US", {
-                          style: "currency",
-                          currency: "EUR",
-                        })
-                      }}
-                    </p>
-                  </div>
-                </div>
-              </td>
-              <td
-                class="relative whitespace-nowrap py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
+              </div>
+            </td>
+            <td class="whitespace px-3 py-5 text-sm text-gray-500">
+              <div
+                class="text-gray-600 flex gap-x-1 items-center text-base font-semibold"
               >
-                <button
-                  type="button"
-                  class="text-gray-500 hover:text-gray-600 ring-1 ring-gray-600 hover:bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center"
-                >
-                  <Icon
-                    name="fluent-emoji-high-contrast:white-heart"
-                    class="text-2xl"
-                  />
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+                {{ course?.stars }}
+                <Icon
+                  name="material-symbols:star"
+                  class="text-yellow-600 text-xl"
+                />
+              </div>
+            </td>
+            <td class="whitespace px-3 py-5 text-sm text-gray-500">
+              <div class="text-gray-600 flex gap-x-1 items-center">
+                <Icon name="ic:sharp-group" class="text-gray-500 text-xl" />
+                {{ course?.students.toLocaleString() }}
+              </div>
+            </td>
+            <td class="whitespace px-3 py-5 text-sm text-gray-500">
+              <div class="flex shrink-0 items-center gap-x-6">
+                <div class="hidden sm:flex sm:flex-col sm:items-end">
+                  <p class="text-sm/6 text-gray-900 font-bold">
+                    {{
+                      course.price.toLocaleString("en-US", {
+                        style: "currency",
+                        currency: "EUR",
+                      })
+                    }}
+                  </p>
+                </div>
+              </div>
+            </td>
+            <td
+              class="relative whitespace py-5 pl-3 pr-4 text-right text-sm font-medium sm:pr-0"
+            >
+              <button
+                type="button"
+                class="text-gray-500 hover:text-gray-600 ring-1 ring-gray-600 hover:bg-gray-200 rounded-full w-10 h-10 flex items-center justify-center"
+              >
+                <Icon
+                  name="fluent-emoji-high-contrast:white-heart"
+                  class="text-2xl"
+                />
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <button
-      class="border-2 border-gray-400 font-medium w-full text-sm py-3 hover:bg-gray-200"
-    >
-      Show more
-    </button>
   </div>
+  <button
+    class="border-2 border-gray-400 font-medium w-full text-sm py-3 hover:bg-gray-200"
+  >
+    Show more
+  </button>
 </template>
 
 <script setup>

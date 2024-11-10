@@ -42,7 +42,7 @@
       @click="openDesc = !openDesc"
       class="text-[#371783] flex items-center justify-start gap-x-2 -translate-y-2 font-semibold"
     >
-      Show <span>{{ openDesc ? "Less" : "More" }}</span>
+      Show <span>{{ openDesc ? "less" : "more" }}</span>
       <Icon
         name="radix-icons:chevron-up"
         class="duration-300 text-xl"

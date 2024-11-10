@@ -5,7 +5,7 @@
     </div>
 
     <div class="flex items-center gap-2 text-xs">
-      <BaseRating :rating="4.3" :numberOfReviews="11636" />
+      <BaseRating :rating="4.4" :numberOfReviews="11636" />
       <p class="">50,593 students</p>
     </div>
   </div>

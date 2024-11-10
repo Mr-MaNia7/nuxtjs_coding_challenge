@@ -29,16 +29,58 @@
         </div>
       </div>
 
-      <div class="text-gray-800 flex flex-col gap-2">
-        <p v-for="(paragraph, index) in instructor.description" :key="index">
-          {{ paragraph }}
-        </p>
+      <!-- Description Accordion -->
+      <div class="flex flex-col gap-y-5 relative my-6">
+        <h1 class="text-2xl font-bold text-gray-800">Description</h1>
+        <div class="relative">
+          <div
+            :class="[
+              openDesc ? 'line-clamp-none' : 'line-clamp-[3]',
+              'text-[#4b5563] duration-300 text-sm flex flex-col gap-4',
+            ]"
+          >
+            <p
+              v-for="(paragraph, index) in instructor.description"
+              :key="index"
+            >
+              {{ paragraph }}
+            </p>
+            <Transition name="fade">
+              <div v-if="openDesc" class="text-sm flex flex-col gap-4">
+                <div
+                  v-for="(list, index) in instructor.additionalSections"
+                  :key="index"
+                >
+                  {{ list }}
+                </div>
+              </div>
+            </Transition>
+          </div>
+          <div
+            class="bg-gradient-to-t from-white to-white/0 h-10 absolute bottom-0 w-full"
+            v-if="!openDesc"
+          ></div>
+        </div>
+
+        <button
+          @click="openDesc = !openDesc"
+          class="text-[#371783] flex items-center justify-start gap-x-2 -translate-y-2 font-semibold"
+        >
+          Show <span>{{ openDesc ? "less" : "more" }}</span>
+          <Icon
+            name="radix-icons:chevron-up"
+            class="duration-300 text-xl"
+            :class="[openDesc ? '' : 'transform rotate-180']"
+          />
+        </button>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
+const openDesc = ref(false);
+
 const instructor = ref({
   title: "Instructor",
   name: "App Brewery Co.",
@@ -63,7 +105,10 @@ const instructor = ref({
     },
   ],
   description: [
-    "Learn to build iOS and Android apps from beginning to end. Our curriculum is designed for entrepreneurs who want to turn their app idea into reality. We’ll teach you everything you need to know to become a successful app entrepreneur with your app business. The course curriculum includes:",
+    "Learn to build iOS and Android apps from beginning to end. Our curriculum is designed for entrepreneurs who want to turn their app idea into reality. We'll teach you everything you need to know to become a successful app entrepreneur with your app business. The course curriculum includes:",
+  ],
+
+  additionalSections: [
     "Idea validation - how to test to see if your idea has traction",
     "Setting up an app business",
     "App design using wireframes and prototypes",
@@ -76,3 +121,15 @@ const instructor = ref({
   ],
 });
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+</style>

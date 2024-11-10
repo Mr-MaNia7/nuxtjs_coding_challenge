@@ -12,7 +12,7 @@
         <CourseContent />
         <CourseRequirement />
         <CourseDescription />
-        <CourseFeaturedRating />
+        <CourseFeaturedReview />
         <CourseStudentsBought />
         <CourseFrequentlyBought />
         <CourseInstructor />
